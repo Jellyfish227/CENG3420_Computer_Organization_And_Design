@@ -1,4 +1,4 @@
-.global _start
+.globl _start
 
 .data 
     var1: .byte 15
@@ -7,8 +7,8 @@
 
 .text
 _start:
-    lb t1, var1 #load byte to $t1
-    lb t2, var2 #load byte to $t2
+    lb t1, var1 # load byte to $t1
+    lb t2, var2 # load byte to $t2
     la t3, endl
 
     # print var1
