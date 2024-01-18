@@ -4,7 +4,6 @@
     var1: .byte 15
     var2: .byte 19
     endl: .byte '\n'
-    printbyte: .byte 48
 
 .text
 _start:
