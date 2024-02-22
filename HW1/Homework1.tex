@@ -1,0 +1,182 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{homework} % See homework.sty %
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{array}
+\usepackage[export]{adjustbox}  
+\usepackage{listings}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+\author{1155193237 - Yu Ching Hei\\email: chyu2@cse.cuhk.edu.hk}
+\title{CENG3420 - Computer Organization \& Design\\Homework 1}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\cfoot{\thepage}
+\date{Date: \today}
+\begin{document}
+\maketitle
+
+\question{(10\%) 
+This is a question about integrated circuit cost. Assume that a wafer contains 4096
+dies and a die has 0.15 defects on average, please answer the following sub-questions.
+\begin{enumerate}
+    \item Calculate the yield of this wafer. (5\%)
+    \item Assume that you wanted to spend 10 millions HKD on manufacturing, how much
+    money can you save for manufacturing the same number of dies if the average defects
+    of a die can be reduced to 0.075? (5\%)
+\end{enumerate}
+}
+\ans{
+\begin{enumerate}
+    \item $$\text{Yield} = \frac{1}{[1 + (0.15 \div 2)]^2} = \frac{1600}{1849} = 86.5\%$$
+    \item Lets assuem the cost per wafer is \$C\\
+            Then, $$\text{Cost per die} = \frac{C}{\text{Die per wafer} \times \text{Yield}}$$
+            Therefore, 
+            \begin{equation} \label{equ1}
+                \begin{split}
+                \text{Saved money} & = 10,000,000 \times (\frac{\text{Yield}_{0.15}}{\text{Yield}_{0.075}} - 1) \\
+                 & = 10,000,000 \times \{\frac{[1 + (0.15 \div 2)]^2}{[1 + (0.075 \div 2)]^2} - 1\} \\
+                 & = 10,000,000 \times \frac{507}{6889} \\
+                 & = \$735,956 (\text{round off to the nearest dollar})
+                \end{split}
+            \end{equation}
+\end{enumerate}
+}
+\question{(10\%) 
+
+Suppose we developed a new processor that has 70\% of the capacitive load of the older processor. 
+Further, it can reduce voltage 10\% compared to previous generation, which results in a 20\% 
+shrink in frequency. What is the impact on dynamic power? Give the ratio of $\frac{\text{Power}_{\text{new}}}{\text{Power}_{\text{old}}}$
+}
+\ans{
+Given the power consumption of a processor can be computed by the following formula
+$$\text{Power} =  \text{Capacitive load} \times \text{Voltage}^2 \times \text{Frequency}^1 $$
+So we have the ratio
+$$\text{Ratio} = \frac{70\% \times (1 - 10\%)^2 \times (1 - 20\%)}{1} 
+= 0.7 \times 0.9^2 \times 0.8 = 0.4536 $$
+}
+\question{(20\%)
+We have an int (32 bits) array named arr0. 
+The pointer of arr0's first element stored in register a0. 
+Please answer the following questions.
+\begin{enumerate}
+    \item How to put the 5th element of arr0 to register t1? (5\%)
+    \item How to calculate t1 + 32 and store the result in register t2? (5\%)
+    \item Find an efficient way to calculate t2 / 32 and t2 \% 32. Please store the results in t3 and t4, 
+    respectively. Note that / is an integer division and \% is the modulo operation. 
+    (hint: using shift and logical operations) (10\%)
+\end{enumerate}
+}
+\ans{
+    \begin{enumerate}
+        \item 
+            \begin{verbatim}
+                lw t1, 16(a0)
+            \end{verbatim}
+        \item 
+            \begin{verbatim}
+                addi t2, t1, 32
+            \end{verbatim}
+        \item 
+            \begin{itemize}
+                \item Division:
+                    \begin{verbatim}
+                        srli t3,t2,5
+                    \end{verbatim}
+                \item Modulo:
+                    \begin{verbatim}
+                        andi t4,t2,0x1F
+                    \end{verbatim}
+            \end{itemize}
+    \end{enumerate}
+}
+\pagebreak
+
+\question{(20\%)
+We have an int (32 bits) array named arr1. The pointer to arr1’s first element stored 
+in register a0. We also have the registers t1 = 0xAAABCDEF, t2 = 0xF8000000
+
+Please answer the following questions:
+\begin{enumerate}
+    \item What is the value of t3 for the following sequence of instructions? (5\%)
+    \begin{center}
+        \texttt{slli t3, t1, 12\\
+        srli t3, t3, 12}
+    \end{center}
+    \item What is the value of t3 for the following sequence of instructions? (5\%)
+    \begin{center}
+        \texttt{slli t3, t2, 4\\
+        srai t3, t3, 4}
+    \end{center}
+    \item Write a piece of assembly program to: (10\%)
+    \begin{itemize}
+        \item Store the result of t1 XOR t2 to register t3 (3\%)
+        \item Store t3 to the first element of arr1; (3\%)
+        \item Store the lowest 8 bits of t3 to the third element of arr1. (4\%)
+    \end{itemize}
+        
+\end{enumerate}
+}
+\ans{
+    \begin{enumerate}
+        \item 0xBCDEF
+        \item 0xF8000000
+        \item 
+        \begin{itemize}
+            \item xor t3, t1, t2
+            \item sw t3, 0(a0)
+            \item andi t3, t3, 0xFF\\
+                sw t3, 12(a0)
+        \end{itemize}
+    \end{enumerate}
+}
+
+\question{(20\%)
+Consider the following RISC-V instructions: \\
+\texttt{li t1, 5\\
+li t2, 1\\
+li t3, 0\\
+LOOP:\\
+beq t1, t3, DONE\\
+mul t2,t2,t1\\
+addi t1, t1, -1\\
+jal ra, LOOP\\
+DONE:\\
+\# end of the program} 
+\begin{enumerate}
+    \item How many times is the loop executed (between LOOP and DONE)? (5\%)
+    \item List the value of t2 at each loop iteration. (10\%)
+    \item What does this program do? (5\%)
+\end{enumerate}
+}
+\ans{
+    \begin{enumerate}
+        \item 5 full loop with one extra bew t1, t3, DONE instruction executed
+        \item 1, 5, 20, 60, 120, 120
+        \item factorial of t1
+    \end{enumerate}
+}
+\pagebreak
+\question{(20\%)
+This is a question about using stack. Write RISC-V instructions to implement the following functionalities.
+\begin{enumerate}
+    \item Reserve a stack area that can save three words of data (1 word = 4 bytes). (5\%)
+    \item Save the return address in ra, data in a0 and data in a1 to the stack. (5\%)
+    \item Restore the return address and data in the stack to corresponding registers. (5\%)
+    \item Free the reserved stack space. (5\%)
+\end{enumerate}
+}
+\ans{
+    \begin{verbatim}
+        addi sp, sp, -12
+        sw ra, 0(sp)
+        sw a0, 4(sp)
+        sw a1, 8(sp)
+        lw a1, 8(sp)
+        lw a0, 4(sp)
+        lw ra, 0(sp)
+        addi sp, sp, 12
+    \end{verbatim}
+}
+\end{document}
