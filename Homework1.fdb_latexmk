@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1707235042 "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_and_Design/Code/HW1/Homework1.tex" "Homework1.pdf" "Homework1" 1707235043 0
-  "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_and_Design/Code/HW1/Homework1.tex" 1707235040 6223 b8c5cc9456b27accbdaa61487194f679 ""
+["pdflatex"] 1708577262 "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_and_Design/Code/Homework1.tex" "Homework1.pdf" "Homework1" 1708577263 0
+  "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_and_Design/Code/Homework1.tex" 1708577213 6223 b8c5cc9456b27accbdaa61487194f679 ""
   "/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1678549815 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/map/fontname/texfonts.map" 1678549815 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1678549815 4609045 74543da1ab9350ba886fce0af49a2cfd ""
@@ -240,9 +240,9 @@
   "/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1678549815 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/web2c/texmf.cnf" 1678549815 40748 4081c8bc921e56c865f975bd762e388c ""
   "/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1678549815 7884066 80f25e60658dfc5dcdb6ade5d53dd316 ""
-  "Homework1.aux" 1707235043 758 0ae6bddbfdda64dcd05c2689302b1f61 "pdflatex"
-  "Homework1.tex" 1707235040 6223 b8c5cc9456b27accbdaa61487194f679 ""
-  "homework.sty" 1706858014 3493 d5b0c88a2df8d2dbdab73d4cf134c63a ""
+  "Homework1.aux" 1708577263 758 0ae6bddbfdda64dcd05c2689302b1f61 "pdflatex"
+  "Homework1.tex" 1708577213 6223 b8c5cc9456b27accbdaa61487194f679 ""
+  "homework.sty" 1708577213 3493 d5b0c88a2df8d2dbdab73d4cf134c63a ""
   (generated)
   "Homework1.aux"
   "Homework1.log"
