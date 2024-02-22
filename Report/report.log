@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Homebrew) (preloaded format=pdflatex 2023.9.21)  20 FEB 2024 22:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Homebrew) (preloaded format=pdflatex 2023.9.21)  22 FEB 2024 22:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_and_Design/Code/Lab1/report.tex
-(/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_and_Design/Code/Lab1/report.tex
+**/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report/report.tex
+(/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report/report.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -836,84 +836,20 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
  [1
 
-{/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
-<Lab1-1-1.png, id=21, 118.4425pt x 163.61125pt>
-File: Lab1-1-1.png Graphic file (type png)
-<use Lab1-1-1.png>
-Package pdftex.def Info: Lab1-1-1.png  used on input line 69.
-(pdftex.def)             Requested size: 59.2211pt x 81.80542pt.
-<Lab1-1-2.png, id=23, 187.70125pt x 128.48pt>
-File: Lab1-1-2.png Graphic file (type png)
-<use Lab1-1-2.png>
-Package pdftex.def Info: Lab1-1-2.png  used on input line 70.
-(pdftex.def)             Requested size: 93.85039pt x 64.23984pt.
-<Lab1-1-3.png, id=24, 111.41624pt x 319.1925pt>
-File: Lab1-1-3.png Graphic file (type png)
-<use Lab1-1-3.png>
-Package pdftex.def Info: Lab1-1-3.png  used on input line 71.
-(pdftex.def)             Requested size: 55.70798pt x 159.59586pt.
-<Lab1-1-4.png, id=25, 201.75375pt x 98.3675pt>
-File: Lab1-1-4.png Graphic file (type png)
-<use Lab1-1-4.png>
-Package pdftex.def Info: Lab1-1-4.png  used on input line 72.
-(pdftex.def)             Requested size: 100.87662pt x 49.18361pt.
-<Lab1-1-5.png, id=26, 1517.67pt x 985.6825pt>
-File: Lab1-1-5.png Graphic file (type png)
-<use Lab1-1-5.png>
-Package pdftex.def Info: Lab1-1-5.png  used on input line 80.
-(pdftex.def)             Requested size: 452.9679pt x 294.18796pt.
- [2 <./Lab1-1-1.png> <./Lab1-1-2.png> <./Lab1-1-3.png> <./Lab1-1-4.png> <./Lab1-1-5.png>]
-<Lab1-2-2.png, id=38, 345.29pt x 650.43pt>
-File: Lab1-2-2.png Graphic file (type png)
-<use Lab1-2-2.png>
-Package pdftex.def Info: Lab1-2-2.png  used on input line 123.
-(pdftex.def)             Requested size: 241.70134pt x 455.2979pt.
-<Lab1-2-3.png, id=39, 260.975pt x 245.91875pt>
-File: Lab1-2-3.png Graphic file (type png)
-<use Lab1-2-3.png>
-Package pdftex.def Info: Lab1-2-3.png  used on input line 127.
-(pdftex.def)             Requested size: 182.68126pt x 172.14194pt.
- [3{/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [4 <./Lab1-2-2.png> <./Lab1-2-3.png>]
-<Lab1-2-1.png, id=58, 1517.67pt x 985.6825pt>
-File: Lab1-2-1.png Graphic file (type png)
-<use Lab1-2-1.png>
-Package pdftex.def Info: Lab1-2-1.png  used on input line 136.
-(pdftex.def)             Requested size: 452.9679pt x 294.18796pt.
- [5 <./Lab1-2-1.png>]
-<Lab1-3-2.png, id=65, 236.885pt x 451.6875pt>
-File: Lab1-3-2.png Graphic file (type png)
-<use Lab1-3-2.png>
-Package pdftex.def Info: Lab1-3-2.png  used on input line 182.
-(pdftex.def)             Requested size: 165.81836pt x 316.17908pt.
-<Lab1-3-3.png, id=66, 363.3575pt x 445.665pt>
-File: Lab1-3-3.png Graphic file (type png)
-<use Lab1-3-3.png>
-Package pdftex.def Info: Lab1-3-3.png  used on input line 186.
-(pdftex.def)             Requested size: 254.3485pt x 311.96336pt.
-<Lab1-3-4.png, id=67, 402.50375pt x 620.3175pt>
-File: Lab1-3-4.png Graphic file (type png)
-<use Lab1-3-4.png>
-Package pdftex.def Info: Lab1-3-4.png  used on input line 201.
-(pdftex.def)             Requested size: 322.00343pt x 496.25468pt.
-<Lab1-3-1.png, id=68, 1517.67pt x 985.6825pt>
-File: Lab1-3-1.png Graphic file (type png)
-<use Lab1-3-1.png>
-Package pdftex.def Info: Lab1-3-1.png  used on input line 210.
-(pdftex.def)             Requested size: 452.9679pt x 294.18796pt.
- [6] [7 <./Lab1-3-2.png> <./Lab1-3-3.png>] [8 <./Lab1-3-4.png>] [9 <./Lab1-3-1.png>] (./report.aux) ) 
+{/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] [2] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 31333 strings out of 476025
- 637848 string characters out of 5779036
+ 31211 strings out of 476025
+ 636010 string characters out of 5779036
  1865388 words of memory out of 5000000
- 51177 multiletter control sequences out of 15000+600000
- 524791 words of font info for 78 fonts, out of 8000000 for 9000
+ 51094 multiletter control sequences out of 15000+600000
+ 524456 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,15n,118p,539b,926s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on report.pdf (9 pages, 2253486 bytes).
+ 116i,11n,118p,536b,926s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on report.pdf (2 pages, 74003 bytes).
 PDF statistics:
- 140 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
- 33 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
