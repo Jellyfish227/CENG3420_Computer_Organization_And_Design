@@ -1,7 +1,7 @@
-PWD /Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_and_Design/Code/Lab1
+PWD /Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report
 INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/web2c/texmf.cnf
 INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_and_Design/Code/Lab1/report.tex
+INPUT /Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report/report.tex
 OUTPUT report.log
 INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/tex/latex/base/article.cls
 INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/tex/latex/base/article.cls
