@@ -18,6 +18,7 @@
 \usepackage[bookmarks=true]{hyperref}
 \usepackage{bookmark}
 \usepackage{float}
+\usepackage{listings}
 
 %% Constants %%
 
@@ -63,6 +64,17 @@
         \textbf{Question \theprobcnt. }#1
     \end{tcolorbox}
 }
+
+\newenvironment{q}[1]{%
+    \stepcounter{probcnt}
+    \tcolorbox[beamer,%
+        noparskip,breakable,
+        title=\textbf{Question \theprobcnt. (#1\%)}]}%
+{\endtcolorbox}
+
+\newenvironment{ans}
+{\noindent{Answer: }\resetpar}
+
 %% Document Setup %%
 
 \makeatletter
@@ -116,9 +128,6 @@
 
 %% tcolorbox Environments %%
 
-\newenvironment{ans}
-{\noindent{Answer: }\resetpar}
-
 \tcolorboxenvironment{sol}{
     boxrule=0pt,
     sharp corners,
@@ -152,3 +161,35 @@
     \gfcb{\texttt{\detokenize{#1}}}
     \ensuremath{\quad \longrightarrow \quad & #1}
 } % cop := code output
+
+%%Listing styles%%
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    % backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+
+\lstset{style=mystyle}
+
+\lstnewenvironment{code}[1][]
+ {%
+  \lstset{belowskip=-1ex,#1}%
+ }{}
