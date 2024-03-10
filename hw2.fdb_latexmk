@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1710014147 "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/hw2.tex" "hw2.pdf" "hw2" 1710014149 0
-  "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/hw2.tex" 1710014147 5889 de76c4bb484a4047abd014895e539be3 ""
+["pdflatex"] 1710066620 "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/hw2.tex" "hw2.pdf" "hw2" 1710066622 0
+  "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/hw2.tex" 1710066620 12206 2f11601a393a224c2f53d4b21f9917cd ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1678549815 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/map/fontname/texfonts.map" 1678549815 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1678549815 4609045 74543da1ab9350ba886fce0af49a2cfd ""
@@ -34,8 +34,10 @@
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1678549815 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm" 1678549815 768 d7b9a2629a0c353102ad947dc9221d49 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1678549815 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1678549815 36741 fa121aac0049305630cf160b86157ee4 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1678549815 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1678549815 32734 69e00a6b65cedb993666e42eedb3d48f ""
+  "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1678549815 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1678549815 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1678549815 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1678549815 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
@@ -220,10 +222,12 @@
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1678549815 56148 51a9a8571c07b9921892ae11063ae853 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/web2c/texmf.cnf" 1678549815 40748 4081c8bc921e56c865f975bd762e388c ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1678549815 7884066 53a9aad02a5b14fbfbcc78ec177fdd6d ""
-  "homework.sty" 1710008198 4577 1e9853d247bf8e03b6d4fe4eeec51b0e ""
-  "hw2.aux" 1710014148 679 46da4675cf844e7fc65ea85e0b4c8708 "pdflatex"
-  "hw2.tex" 1710014147 5889 de76c4bb484a4047abd014895e539be3 ""
-  "q2.png" 1710009071 609714 6d0ecfbf99054324c5a16f88f8f1fb50 ""
+  "homework.sty" 1710014438 4577 1e9853d247bf8e03b6d4fe4eeec51b0e ""
+  "hw2.aux" 1710066622 679 30c836ffecf3c836dd3d7d01ca0ec8a5 "pdflatex"
+  "hw2.tex" 1710066620 12206 2f11601a393a224c2f53d4b21f9917cd ""
+  "q2.png" 1710014610 609714 6d0ecfbf99054324c5a16f88f8f1fb50 ""
+  "q3.png" 1710062035 146549 45d9fe66cad263bd7ff80d7514c5e329 ""
+  "q5.png" 1710063894 93924 dd6dd284cd71992721694765df419b5f ""
   (generated)
   "hw2.aux"
   "hw2.log"
