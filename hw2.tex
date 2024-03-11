@@ -29,8 +29,8 @@ NUM\_1 in the whole question paper. (Since my last digit is 7, NUM\_1 is 7)\\
 Consider the following RISC-V instructions. Please note that we treat 
 NUM\_1\%2 and NUM\_1\%2+1 as decimal values.
 \begin{code}
-    li a1, NUM_1%2
-    li a2, NUM_1%2+1
+    li a1, 1    #li a1, NUM_1%2
+    li a2, 2    #li a2, NUM_1%2+1
     li a3, 6
     LOOP:
     slti t0, a3, 1
@@ -52,7 +52,7 @@ NUM\_1\%2 and NUM\_1\%2+1 as decimal values.
 \begin{ans}
     \begin{enumerate}
         \item 6 times (with one more check which is line 5 and 6 as shown)
-        \item a1 = 21, a2 = 34
+        \item a1 = 21, a2 = 34 
     \end{enumerate}
 \end{ans}
 \pagebreak
