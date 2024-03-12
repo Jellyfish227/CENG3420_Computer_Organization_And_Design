@@ -51,7 +51,7 @@ NUM\_1\%2 and NUM\_1\%2+1 as decimal values.
 
 \begin{ans}
     \begin{enumerate}
-        \item 6 times (with one more check which is line 5 and 6 as shown)
+        \item 7 times, the first 6 times didn't fulfill the check, and the 7$^{\texttt{th}}$ time got the check fulfilled
         \item a1 = 21, a2 = 34 
     \end{enumerate}
 \end{ans}
@@ -123,7 +123,7 @@ Multiplier as 4bits, Multiplier0 as 1bit, Multiplicand as 8bits, Product as 8bit
                     so we have mantissa 100 0000 0000 0000 0000 0000
                 \item so the single precision floating point number is
                     \begin{center}
-                        1 01111111 10000000000000000000000$_2$ = BFC147AE$_{16}$
+                        1 01111111 10000000000000000000000$_2$ = BFC00000$_{16}$
                     \end{center}
             \end{enumerate}
     \end{enumerate}
@@ -165,7 +165,12 @@ The following figures show the format and datapath of an R format instruction.
                 \begin{verbatim}
                     srl rd, rs1, rs2
                 \end{verbatim}
-        \item The port ``Read Addr 1'' and ``Read Addr 2'' are used for addressing rs1 and rs2 respectively, while the ``Write Addr'' port is used for addressing rd.
+        \item 
+        \begin{itemize}
+            \item Read Addr 1: rs1
+            \item Read Addr 2: rs2
+            \item Write Addr: rd
+        \end{itemize}
     \end{enumerate}
 \end{ans}
 \pagebreak
