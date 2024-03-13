@@ -160,10 +160,18 @@ The following figures show the format and datapath of an R format instruction.
 \end{q}
 \begin{ans}
     \begin{enumerate}
-        \item By breaking down the machine code, it is 0000 0000 1100 0101 1101 0101 0011 0011$_2$. By bit0-7(0110011), we can know that it is a R-type instruction. By looking at the ``funct3'' (bit12-14 = $101_2$ = 0x5), we know that it is a
-                shift right function. By looking at the ``funct7''(bit25-31 = 0000 000$_2$ = 0), so we can know that it is a shift right logical function. Therefore the code instruction in assembly is:
+        \item By breaking down the machine code, it is 0000 0000 1100 0101 1101 0101 0011 0011$_2$. 
+                \begin{enumerate}
+                    \item By bit0-7(0110011), we can know that it is a R-type instruction. 
+                    \item By bit7-11(01010), we can know that rd is x10 which is a0.
+                    \item By ``funct3'' (bit12-14 = $101_2$ = 0x5), we know that it is a shift right function. 
+                    \item By bit15-19(01011) we can know that r1 is x11 which is a1.
+                    \item By bit20-24(01100) we can know that r2 is a2. 
+                    \item By ``funct7''(bit25-31 = 0000000$_2$ = 0), so we can know that it is a shift right logical function. 
+                \end{enumerate}
+                Therefore the code instruction in assembly is:
                 \begin{verbatim}
-                    srl rd, rs1, rs2
+                    srl a0, a1, a2
                 \end{verbatim}
         \item 
         \begin{itemize}
