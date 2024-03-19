@@ -72,6 +72,13 @@
         title=\textbf{Question \theprobcnt. (#1\%)}]}%
 {\endtcolorbox}
 
+\newenvironment{qNoMark}{%
+    \stepcounter{probcnt}
+    \tcolorbox[beamer,%
+        noparskip,breakable,
+        title=\textbf{Question \theprobcnt. }]}%
+{\endtcolorbox}
+
 \newenvironment{ans}
 {\noindent{Answer: }\resetpar}
 
