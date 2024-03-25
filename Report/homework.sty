@@ -72,6 +72,13 @@
         title=\textbf{Question \theprobcnt. (#1\%)}]}%
 {\endtcolorbox}
 
+\newenvironment{qNoMark}{%
+    \stepcounter{probcnt}
+    \tcolorbox[beamer,%
+        noparskip,breakable,
+        title=\textbf{Question \theprobcnt. }]}%
+{\endtcolorbox}
+
 \newenvironment{ans}
 {\noindent{Answer: }\resetpar}
 
@@ -175,12 +182,13 @@
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\ttfamily\footnotesize,
+    % identifierstyle=\color{blue}, 
     breakatwhitespace=false,         
     breaklines=true,                 
     captionpos=b,                    
     keepspaces=true,                 
     numbers=left,                    
-    numbersep=5pt,                  
+    numbersep=5pt,          
     showspaces=false,                
     showstringspaces=false,
     showtabs=false,                  
@@ -189,7 +197,7 @@
 
 \lstset{style=mystyle}
 
-\lstnewenvironment{code}[1][]
+\lstnewenvironment{code}[1][language=c]
  {%
   \lstset{belowskip=-1ex,#1}%
  }{}
