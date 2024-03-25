@@ -27,121 +27,123 @@ Implement an RISCV-LC Assembler.
 \end{qNoMark}
 
 \begin{ans}
-\\\indent In this lab, we are going to complete some of the instructions in the sim.c file. 
+\\\indent In this lab, we are going to complete some of the instructions in the \texttt{asm.c} file. 
 There are few main points to mark and it is going to be stated in this lab report. 
 In the following part, I am going to demonstrate how I complete this lab. 
 
-Let's say we have to complete the \texttt{handle\_slli} function: 
-Since we know that it is a I-type instructions, we can refer to the sample implementation of the \texttt{handle\_addi} function
+For integer R-I Instructions, they have the same pattern as \texttt{ADDI} instruction, which is I-Type instruction. 
+So basically I can just modify the \texttt{ADDI} instruction to add corresponding funct3(bit12-14) to the binary output and 
+change some of the argument parsing of \texttt{arg3} for the shift functions like \texttt{SLLI, SRLI, SRAI} instructions. Here 
+is one of my implementations of assembling integer R-I Instructions instruction, this case using \texttt{SRAI} instruction. 
 \begin{code}
-void handle_addi(unsigned int cur_inst) {
-    unsigned int rd = MASK11_7(cur_inst), rs1 = MASK19_15(cur_inst);
-    int imm12 = sext(MASK31_20(cur_inst), 12);
-    NEXT_LATCHES.REGS[rd] = CURRENT_LATCHES.REGS[rs1] + imm12;
+//other cases
+else if (is_opcode(opcode) == SRAI) {
+    binary = (0x04 << 2) + 0x03;
+    binary += (reg_to_num(arg1, line_no) << 7);
+    binary += (0x05 << 12);
+    binary += (reg_to_num(arg2, line_no) << 15);
+    binary += (lower5bit(arg3, line_no) << 20);
+    binary += (0x010 << 26);
 }
+//continue on other cases
 \end{code}
-since the parsing is the same for all integer R-I instructions, but only differs by the logic, I just have to modify line 4
-by changing the ``\texttt{+}'' operator to other operators like ``$\ll$'' for \texttt{slli}, ``$\wedge$'' for \texttt{ori} etc. 
-Basically most integer R-I instructions like \texttt{slli, xori, srli, ori, andi, lui} can be implemented in the same way except \texttt{srai}. 
-\\Since the result of \texttt{srai} instruction is MSB-extended, we have to put the result into the \texttt{sext()} fucntion before storing it into the rd. 
-\begin{verbatim}
-    NEXT_LATCHES.REGS[rd] = sext(CURRENT_LATCHES.REGS[rs1] >> imm5, 32);
-\end{verbatim}
+Line 9 adds the funct3 to the binary, line 11 extract the lower 5 bits of the immediate which stands for the number of bits to be 
+shifted, and line 11 is adding value to binary to define the funct7 of the corresponding instruction. 
 
-
-\indent Then we have the integer R-R type instructions. These instructions implement R-Type format. So we are refering to the R-Type instruction example
+For Integer R-R operations, they have the same pattern as \texttt{ADD} instruction, which is R-Type instruction. 
+So basically I can just modify the \texttt{ADD} instruction to add corresponding funct3(bit12-14) and funct7(bit25-31) to the binary output. 
+Here is one of my implementations of assembling integer R-R Instructions instruction, this case using \texttt{SRA} instruction. 
 \begin{code}
-void handle_add(unsigned int cur_inst) {
-    unsigned int rd = MASK11_7(cur_inst),
-                rs1 = MASK19_15(cur_inst),
-                rs2 = MASK24_20(cur_inst);
-    NEXT_LATCHES.REGS[rd] = CURRENT_LATCHES.REGS[rs1] 
-                            + CURRENT_LATCHES.REGS[rs2];
+//other cases
+else if (is_opcode(opcode) == SRA) {
+    /* Lab2-1 assignment */
+    binary = (0x0C << 2) + 0x03;
+    binary += (reg_to_num(arg1, line_no) << 7);
+    binary += (0x05 << 12);
+    binary += (reg_to_num(arg2, line_no) << 15);
+    binary += (reg_to_num(arg3, line_no) << 20);
+    binary += (0x020 << 25);
 }
+//continue other cases
 \end{code}
-To complete the R-Type instructions, it shares the same idea of I type, 
-by changing the ``\texttt{+}'' operator in line 6 to other operators like ``$\ll$'' for \texttt{sll}, ``$\wedge$'' for \texttt{or} etc. 
-Same for R-R instructions, \texttt{sra} requires special handling as it has MSB-extended return value. 
-so the last line becomes
-\begin{verbatim}
-        NEXT_LATCHES.REGS[rd] = sext(CURRENT_LATCHES.REGS[rs1] 
-                            >> CURRENT_LATCHES.REGS[rs2], 32);
-\end{verbatim}
-For unconditional jump \texttt{JAL}, it uses J-Type format which has the 20-bit jimm20 specially formatted into the form 
-of $[20|10:1|11|19:12]$. Therefore, there is no simple masking but we have to mask the current instruction binary stream part by part. 
-The construction of jump immediate is done as below: 
-\begin{code}
-int imm20 = (MASK19_12(cur_inst) << 12);
-    imm20 += (MASK20(cur_inst) << 11);
-    imm20 += (MASK30_21(cur_inst) << 1);
-    imm20 += (MASK31(cur_inst) << 20);
-\end{code}
-then the PC + 4 of current state will be stored into the rd if provided
-and the sign-extended jump immediate is added to the current PC as a offset then stored to 
-the PC of next state to let the FSM jump to the desire location in the next state
+Line 6 add corresponding funct3 to the binary, line 7 and 8 handle corresponding register arguments, line 9 add corresponding funct7 to the binary. 
+\pagebreak
 
-For unconditional jump \texttt{JALR}, is uses I-Type format so it shares the same parsing format as the I-Type as implemented in the previous part. 
-But the main different is we are jumping to an address reletive to an address stored in register. Therefore, instead of adding the jump offest directly to the 
-next state PC, the next state PC is set to the address stored in rs1 that is offset by the immediate value. 
+For \texttt{JALR} instruction, it uses I-Type format. So the assembling format is similar to \texttt{ADDI} instruction. 
+Since \texttt{JALR} have only 2 arguments, and the arg2 contains both the offset immediate and the register, we have to use the function
+\texttt{parse\_regs\_indirect\_addr()} to separate the arg2. Then put the corresponding part into the the binary. 
 
-For conditional branches, there is a given example of beq, so we can just mimic the parsing logic done in beq and change the branching logic
 \begin{code}
-void handle_beq(unsigned int cur_inst) {
-    unsigned int rs1 = MASK19_15(cur_inst), rs2 = MASK24_20(cur_inst);
-    int imm12 = (MASK31(cur_inst) << 12) + \
-            (MASK7(cur_inst) << 11) + \
-            (MASK30_25(cur_inst) << 5) + \
-            (MASK11_8(cur_inst) << 1);
-    if (CURRENT_LATCHES.REGS[rs1] == CURRENT_LATCHES.REGS[rs2])
-        NEXT_LATCHES.PC = (sext(imm12, 12) + CURRENT_LATCHES.PC);
+//other cases
+else if (is_opcode(opcode) == JALR) {
+    binary = (0x019 << 2) + 0x03;
+    binary += (reg_to_num(arg1, line_no) << 7);
+    binary += (reg_to_num(parse_regs_indirect_addr(arg2, line_no)->reg, line_no) << 15);
+    binary += ((parse_regs_indirect_addr(arg2, line_no)->imm) << 20);
 }
+//continue other cases
 \end{code}
-we just have to modify the ``\texttt{+}'' in line 8 to implement different branching logic like ``\texttt{!=}'' for \texttt{bne}, ``\texttt{>=}'' for \texttt{bge} and
-``\texttt{<}'' for \texttt{blt}. 
 
-For load instructions, they are in I-Type format so the parsing is the same as implemented in the previous part. 
-By following the example of the \texttt{lb}, we can formulate the instructions to read the memory from the address that is offset by the immediate. 
-After retrieving the value from the memory, I applied corresponding masking fucntion to the value so that the output will be of the desired length. 
-
-For store instructions, they have similar instruction parsing as the conditional branch instructions, so the main focus will be the storing mechanism. 
-This is the implementation of my \texttt{handle\_sw} fucntion. 
+For \texttt{JAL} instruction, it uses special J-Type format. So the assembling logic is different to \texttt{JALR} instruction. 
 
 \begin{code}
-void handle_sw(unsigned int cur_inst) {
-    unsigned int rs1 = MASK19_15(cur_inst), rs2 = MASK24_20(cur_inst);
-    int imm12 = (MASK11_7(cur_inst));
-    imm12 += (MASK31_25(cur_inst) << 5);
-    int startAddr = CURRENT_LATCHES.REGS[rs1] + sext(imm12, 12);
-    MEMORY[startAddr] = (MASK7_0(CURRENT_LATCHES.REGS[rs2]));
-    MEMORY[startAddr + 1] = (MASK15_8(CURRENT_LATCHES.REGS[rs2]));
-    MEMORY[startAddr + 2] = (MASK23_16(CURRENT_LATCHES.REGS[rs2]));
-    MEMORY[startAddr + 3] = (MASK31_24(CURRENT_LATCHES.REGS[rs2]));
+//other cases
+else if (is_opcode(opcode) == JAL) {
+    binary = (0x01b << 2) + 0x03;
+    binary += (reg_to_num(arg1, line_no) << 7);
+    int val = handle_label_or_imm(line_no, arg2, label_table, number_of_labels);
+    int offset = val - addr;
+    binary += ((offset & 0x100000) << (31 - 20)); //bit20
+    binary += ((offset & 0x7FE) << 20); //bit10:1 
+    binary += ((offset & 0b100000000000) << (20 - 11)); //bit11
+    binary += ((offset & 0xFF000)); //bit19:12
 }
+//continue other cases
 \end{code}
-In my code, I have separated the data to be stored to the memory into 4 different sections and store 
-them into the memory byte by byte separately. For word(32-bit), split into 4 chunks; for half(16-bit), split into 2 chunks. 
+Since \texttt{JAL} have special implementation in the 20-bit jump immediate, masking and careful shifting is needed to put the immediate in the correct position. \\
+bit20 of the immediate only need to shift (31 - 20) in order to be in the bit31 of the instruction. \\
+bit10:1 is shifted to left 20 in order to align the first bit to bit21. \\
+bit11 is masked separately then shifted by (20-11)bit to place at bit20. \\
+bit19:12 are of the same position of the insturction so no shifting is needed. 
 
+For conditional branches, they are in B-Type format, which requires careful masking and shifting as well. 
+Since example is given, the parsing and shifting of immediate is done for us so all we need is just to modify the implementation 
+and add the funct3 to the instructions to differ them from each other. 
+
+For Load Instructions, they implement I-Type formatting. However, they only take 2 arguments so we have to separate the offset immediate and the register 
+from arg2 by calling the \texttt{parse\_regs\_indirect\_addr()} and carefully put the register into position of rd and immediate respectively. Since example is given for the 
+\texttt{LB} instruction, so all we need to do is to add the funct3 to the binary that differs from each other branch fucntions. 
+
+For Store Instructions, they implement specail S-Type formatting. They only take 2 arguments so we have to separate the offset immediate and the register 
+from arg2 by calling the \texttt{parse\_regs\_indirect\_addr()} and put them into correct position. 
+And since they have similar structure as branch instructions execpt the immediate part, we only need to modify the position of immediate. 
 \end{ans}
 \pagebreak
-The following are the screenshots of the corresponding similations. 
-% \begin{figure}[H]
-%     \caption{add4.bin}
-%     \includegraphics[width=1\linewidth]{../figs/add4.png}
-% \end{figure}
+The following are the screenshots of the lab results. 
+\begin{figure}[H]
+    \caption{make validate result}
+    \includegraphics[width=1\linewidth]{../figs/validate.png}
+\end{figure}
 
-% \begin{figure}[H]
-%     \caption{count10.bin}
-%     \includegraphics[width=1\linewidth]{../figs/count10.png}
-% \end{figure}
+The following screenshots are the comparison of suggested answer(Left) and my output(Right). No highlighting means no different. 
+\begin{figure}[H]
+    \caption{add4.bin}
+    \includegraphics[width=1\linewidth]{../figs/add4.png}
+\end{figure}
 
-% \begin{figure}[H]
-%     \caption{isa.bin}
-%     \includegraphics[width=1\linewidth]{../figs/isa.png}
-% \end{figure}
+\begin{figure}[H]
+    \caption{count10.bin}
+    \includegraphics[width=1\linewidth]{../figs/count10.png}
+\end{figure}
 
-% \begin{figure}[H]
-%     \caption{swap.bin}
-%     \includegraphics[width=1\linewidth]{../figs/swap.png}
-% \end{figure}
+\begin{figure}[H]
+    \caption{isa.bin}
+    \includegraphics[width=1\linewidth]{../figs/isa.png}
+\end{figure}
+
+\begin{figure}[H]
+    \caption{swap.bin}
+    \includegraphics[width=1\linewidth]{../figs/swap.png}
+\end{figure}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Homebrew) (preloaded format=pdflatex 2024.2.23)  25 MAR 2024 10:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Homebrew) (preloaded format=pdflatex 2024.2.23)  25 MAR 2024 23:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -802,30 +802,49 @@ Package hyperref Info: Link coloring OFF on input line 24.
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 44.
- (/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 44.
- (/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}
 
-] [2] [3] (./yuchinghei-1155193237-lab2-1.aux) ) 
+] [2]
+<../figs/validate.png, id=70, 1630.09pt x 770.88pt>
+File: ../figs/validate.png Graphic file (type png)
+<use ../figs/validate.png>
+Package pdftex.def Info: ../figs/validate.png  used on input line 125.
+(pdftex.def)             Requested size: 452.9679pt x 214.20992pt.
+<../figs/add4.png, id=72, 1517.67pt x 948.54375pt>
+File: ../figs/add4.png Graphic file (type png)
+<use ../figs/add4.png>
+Package pdftex.def Info: ../figs/add4.png  used on input line 131.
+(pdftex.def)             Requested size: 452.9679pt x 283.10349pt.
+<../figs/count10.png, id=73, 1517.67pt x 948.54375pt>
+File: ../figs/count10.png Graphic file (type png)
+<use ../figs/count10.png>
+Package pdftex.def Info: ../figs/count10.png  used on input line 136.
+(pdftex.def)             Requested size: 452.9679pt x 283.10349pt.
+ [3 <../figs/validate.png> <../figs/add4.png>]
+<../figs/isa.png, id=82, 1517.67pt x 948.54375pt>
+File: ../figs/isa.png Graphic file (type png)
+<use ../figs/isa.png>
+Package pdftex.def Info: ../figs/isa.png  used on input line 141.
+(pdftex.def)             Requested size: 452.9679pt x 283.10349pt.
+<../figs/swap.png, id=83, 1517.67pt x 948.54375pt>
+File: ../figs/swap.png Graphic file (type png)
+<use ../figs/swap.png>
+Package pdftex.def Info: ../figs/swap.png  used on input line 146.
+(pdftex.def)             Requested size: 452.9679pt x 283.10349pt.
+ [4 <../figs/count10.png> <../figs/isa.png>] [5 <../figs/swap.png>] (./yuchinghei-1155193237-lab2-1.aux) ) 
 Here is how much of TeX's memory you used:
- 31973 strings out of 476025
- 642046 string characters out of 5779036
- 2071388 words of memory out of 5000000
- 51842 multiletter control sequences out of 15000+600000
- 520038 words of font info for 61 fonts, out of 8000000 for 9000
+ 31969 strings out of 476025
+ 642081 string characters out of 5779036
+ 2075388 words of memory out of 5000000
+ 51845 multiletter control sequences out of 15000+600000
+ 513530 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,11n,118p,571b,1273s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on yuchinghei-1155193237-lab2-1.pdf (3 pages, 89388 bytes).
+ 116i,11n,118p,571b,1271s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on yuchinghei-1155193237-lab2-1.pdf (5 pages, 781716 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
- 44 named destinations out of 1000 (max. 500000)
- 25 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 135 PDF objects out of 1000 (max. 8388607)
+ 104 compressed objects within 2 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 50 words of extra memory for PDF output out of 10000 (max. 10000000)
 

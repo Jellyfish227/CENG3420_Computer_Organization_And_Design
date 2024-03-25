@@ -371,8 +371,9 @@ int inst_to_binary(
         binary += (reg_to_num(arg1, line_no) << 7);
         int val = handle_label_or_imm(line_no, arg2, label_table, number_of_labels);
         int offset = val - addr;
-        binary += ((offset & 0xFFF) << 20);
-        binary += ((offset & 0b10000000000) << (20 - 10));
+        binary += ((offset & 0x100000) << (31 - 20));
+        binary += ((offset & 0x7FE) << 20);
+        binary += ((offset & 0b100000000000) << (20 - 11));
         binary += ((offset & 0xFF000));
 
         // warn("Lab2-1 assignment: JAL instruction\n");
