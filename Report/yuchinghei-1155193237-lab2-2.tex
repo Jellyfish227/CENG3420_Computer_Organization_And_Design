@@ -67,7 +67,6 @@ so the last line becomes
         NEXT_LATCHES.REGS[rd] = sext(CURRENT_LATCHES.REGS[rs1] 
                             >> CURRENT_LATCHES.REGS[rs2], 32);
 \end{verbatim}
-\pagebreak
 For unconditional jump \texttt{JAL}, it uses J-Type format which has the 20-bit jimm20 specially formatted into the form 
 of $[20|10:1|11|19:12]$. Therefore, there is no simple masking but we have to mask the current instruction binary stream part by part. 
 The construction of jump immediate is done as below: 
@@ -101,7 +100,26 @@ we just have to modify the ``\texttt{+}'' in line 8 to implement different branc
 ``\texttt{<}'' for \texttt{blt}. 
 
 For load instructions, they are in I-Type format so the parsing is the same as implemented in the previous part. 
+By following the example of the \texttt{lb}, we can formulate the instructions to read the memory from the address that is offset by the immediate. 
+After retrieving the value from the memory, I applied corresponding masking fucntion to the value so that the output will be of the desired length. 
 
+For store instructions, they have similar instruction parsing as the conditional branch instructions, so the main focus will be the storing mechanism. 
+This is the implementation of my \texttt{handle\_sw} fucntion. 
+
+\begin{code}
+void handle_sw(unsigned int cur_inst) {
+    unsigned int rs1 = MASK19_15(cur_inst), rs2 = MASK24_20(cur_inst);
+    int imm12 = (MASK11_7(cur_inst));
+    imm12 += (MASK31_25(cur_inst) << 5);
+    int startAddr = CURRENT_LATCHES.REGS[rs1] + sext(imm12, 12);
+    MEMORY[startAddr] = (MASK7_0(CURRENT_LATCHES.REGS[rs2]));
+    MEMORY[startAddr + 1] = (MASK15_8(CURRENT_LATCHES.REGS[rs2]));
+    MEMORY[startAddr + 2] = (MASK23_16(CURRENT_LATCHES.REGS[rs2]));
+    MEMORY[startAddr + 3] = (MASK31_24(CURRENT_LATCHES.REGS[rs2]));
+}
+\end{code}
+In my code, I have separated the data to be stored to the memory into 4 different sections and store 
+them into the memory byte by byte separately. For word(32-bit), split into 4 chunks; for half(16-bit), split into 2 chunks. 
 
 \end{ans}
 \pagebreak

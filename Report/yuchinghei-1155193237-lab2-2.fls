@@ -1340,6 +1340,14 @@ INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/graphic
 OUTPUT yuchinghei-1155193237-lab2-2.pdf
 INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/tfm/public/cm/cmr8.tfm

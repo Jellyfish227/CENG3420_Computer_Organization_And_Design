@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Homebrew) (preloaded format=pdflatex 2024.2.23)  20 MAR 2024 02:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Homebrew) (preloaded format=pdflatex 2024.2.23)  25 MAR 2024 10:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -798,6 +798,11 @@ Package caption Info: End \AtBeginDocument code.
 \@sidenotes@extrawidth=\skip75
 Package hyperref Info: Link coloring OFF on input line 24.
 \c@lstlisting=\count349
+ (/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+)
 LaTeX Font Info:    Trying to load font information for U+msa on input line 44.
  (/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -809,18 +814,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [2] (./yuchinghei-1155193237-lab2-2.aux) ) 
 Here is how much of TeX's memory you used:
- 31795 strings out of 476025
- 639538 string characters out of 5779036
- 2019388 words of memory out of 5000000
- 51682 multiletter control sequences out of 15000+600000
+ 31972 strings out of 476025
+ 642040 string characters out of 5779036
+ 2071388 words of memory out of 5000000
+ 51842 multiletter control sequences out of 15000+600000
  520038 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,11n,118p,571b,1163s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,11n,118p,571b,1273s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on yuchinghei-1155193237-lab2-2.pdf (2 pages, 86043 bytes).
+Output written on yuchinghei-1155193237-lab2-2.pdf (2 pages, 88846 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
- 32 named destinations out of 1000 (max. 500000)
+ 104 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
+ 43 named destinations out of 1000 (max. 500000)
  25 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1710874274 "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report/yuchinghei-1155193237-lab2-2.tex" "yuchinghei-1155193237-lab2-2.pdf" "yuchinghei-1155193237-lab2-2" 1710874275 0
-  "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report/yuchinghei-1155193237-lab2-2.tex" 1710874273 5271 c0a3e6a2429aa29f3401767b99a9ba59 ""
+["pdflatex"] 1711332525 "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report/yuchinghei-1155193237-lab2-2.tex" "yuchinghei-1155193237-lab2-2.pdf" "yuchinghei-1155193237-lab2-2" 1711332526 0
+  "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report/yuchinghei-1155193237-lab2-2.tex" 1711332524 6548 0510a11697c19b2c9401353af7e2657b ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/map/fontname/texfonts.map" 1678549815 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1678549815 4609045 74543da1ab9350ba886fce0af49a2cfd ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1678549815 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -162,6 +162,7 @@
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty" 1678549815 5766 13a9e8766c47f30327caf893ece86ac8 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/listings.cfg" 1678549815 1829 d8258b7d94f5f955e70c623e525f9f45 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/listings.sty" 1678549815 80947 75a96bb4c9f40ae31d54a01d924df2ff ""
+  "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstlang1.sty" 1678549815 205154 31132370016e8c97e49bc3862419679b ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/listings/lstmisc.sty" 1678549815 77021 d05e9115c67855816136d82929db8892 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/marginnote/marginnote.sty" 1678549815 14009 35dd526d8247b2f4ee465b7aa25e2d16 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/mathtools/mathtools.sty" 1678549815 62269 5c1837a5bc5db4c0d255eedc225ca44b ""
@@ -215,9 +216,9 @@
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1678549815 56148 51a9a8571c07b9921892ae11063ae853 ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/web2c/texmf.cnf" 1678549815 40748 4081c8bc921e56c865f975bd762e388c ""
   "/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1678549815 7884066 53a9aad02a5b14fbfbcc78ec177fdd6d ""
-  "homework.sty" 1710868709 4749 b239b673121e763f7357c2a63dc8a6e8 ""
-  "yuchinghei-1155193237-lab2-2.aux" 1710874275 679 69f35c7c3c46539d1f4440f59bbc7d8a "pdflatex"
-  "yuchinghei-1155193237-lab2-2.tex" 1710874273 5271 c0a3e6a2429aa29f3401767b99a9ba59 ""
+  "homework.sty" 1711006568 4788 4fa571382f9eadbbde46f7b9c386fcad ""
+  "yuchinghei-1155193237-lab2-2.aux" 1711332526 679 69f35c7c3c46539d1f4440f59bbc7d8a "pdflatex"
+  "yuchinghei-1155193237-lab2-2.tex" 1711332524 6548 0510a11697c19b2c9401353af7e2657b ""
   (generated)
   "yuchinghei-1155193237-lab2-2.aux"
   "yuchinghei-1155193237-lab2-2.log"
