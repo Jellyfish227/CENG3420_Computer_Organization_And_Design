@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Homebrew) (preloaded format=pdflatex 2024.2.23)  25 MAR 2024 10:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Homebrew) (preloaded format=pdflatex 2024.2.23)  25 MAR 2024 10:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -812,20 +812,42 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 44.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{/opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}
 
-] [2] (./yuchinghei-1155193237-lab2-2.aux) ) 
+] [2]
+<../figs/add4.png, id=66, 1517.67pt x 985.6825pt>
+File: ../figs/add4.png Graphic file (type png)
+<use ../figs/add4.png>
+Package pdftex.def Info: ../figs/add4.png  used on input line 129.
+(pdftex.def)             Requested size: 452.9679pt x 294.18796pt.
+<../figs/count10.png, id=68, 1517.67pt x 985.6825pt>
+File: ../figs/count10.png Graphic file (type png)
+<use ../figs/count10.png>
+Package pdftex.def Info: ../figs/count10.png  used on input line 134.
+(pdftex.def)             Requested size: 452.9679pt x 294.18796pt.
+<../figs/isa.png, id=69, 1517.67pt x 985.6825pt>
+File: ../figs/isa.png Graphic file (type png)
+<use ../figs/isa.png>
+Package pdftex.def Info: ../figs/isa.png  used on input line 139.
+(pdftex.def)             Requested size: 452.9679pt x 294.18796pt.
+ [3 <../figs/add4.png> <../figs/count10.png>]
+<../figs/swap.png, id=78, 1517.67pt x 985.6825pt>
+File: ../figs/swap.png Graphic file (type png)
+<use ../figs/swap.png>
+Package pdftex.def Info: ../figs/swap.png  used on input line 144.
+(pdftex.def)             Requested size: 452.9679pt x 294.18796pt.
+ [4 <../figs/isa.png> <../figs/swap.png>] (./yuchinghei-1155193237-lab2-2.aux) ) 
 Here is how much of TeX's memory you used:
- 31972 strings out of 476025
- 642040 string characters out of 5779036
+ 32015 strings out of 476025
+ 642802 string characters out of 5779036
  2071388 words of memory out of 5000000
- 51842 multiletter control sequences out of 15000+600000
+ 51873 multiletter control sequences out of 15000+600000
  520038 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,11n,118p,571b,1273s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></opt/homebrew/Cellar/texlive/20230313_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on yuchinghei-1155193237-lab2-2.pdf (2 pages, 88846 bytes).
+Output written on yuchinghei-1155193237-lab2-2.pdf (4 pages, 818609 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 43 named destinations out of 1000 (max. 500000)
- 25 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
+ 49 named destinations out of 1000 (max. 500000)
+ 45 words of extra memory for PDF output out of 10000 (max. 10000000)
 
