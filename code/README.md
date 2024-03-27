@@ -1,10 +1,10 @@
 # ceng3420
 CENG3420 Lab Assignments
 
-## Lab 3-1: Implement the Finite State Machine
-* Replace all `x` in `uop` with the correct 1 or 0, according to the microarchitecture (`riscv-lc.pdf` in `docs/`) and the finite state machine (`fsm.pdf` in `docs/`).
-* Implement one line code that the register x0 is hard-wired to zero in `riscv-lc.c`.
-    - Once you implement the code, you can remove the code `error("Lab3-1 assignment: x0 is hard-wired to zero\n");` to make the simulator continues to work.
+## Lab 3-2: Implement the Finite State Machine
+* Replace `uop` with the version you have implemented in Lab 3-1.
+* Finish the function "cycle_memory" in `riscv-lc.c`.
+* Finish the function "latch_datapath_values" in `riscv-lc.c`.
 
 ## For more info.
 
@@ -16,10 +16,15 @@ CENG3420 Lab Assignments
 * Apr. 30, 2023: Update static libraries for
     - x86, MacOS
     - x86, Ubuntu 18.06
+* Apr. 19, 2023: Update Lab 3-2: riscv-lc.pdf
 * Apr. 19, 2023: Update Lab 3-1: riscv-lc.pdf
+* Apr. 19, 2023: Update Lab 3-2, including
+	- fsm.pdf
+	- riscv-lc.pdf
 * Apr. 19, 2023: Update Lab 3-1, including
 	- fsm.pdf
 	- riscv-lc.pdf
+* Apr. 12, 2023: Lab 3-2 is released.
 * Mar. 22, 2023: Lab 3-1 is released.
 * Mar.  8, 2023: Update Lab 2-2, including
     - update the BEQ example
