@@ -320,7 +320,7 @@ void handle_srai(unsigned int cur_inst) {
 
     unsigned int rd = MASK11_7(cur_inst), rs1 = MASK19_15(cur_inst);
     int imm5 = MASK24_20(cur_inst);
-    NEXT_LATCHES.REGS[rd] = sext(CURRENT_LATCHES.REGS[rs1] >> imm5, 32);
+    NEXT_LATCHES.REGS[rd] = sext(CURRENT_LATCHES.REGS[rs1] >> imm5, 5 - imm5);
     
     // warn("Lab2-2 assignment: SRAI\n");
     // exit(EXIT_FAILURE);
@@ -447,7 +447,7 @@ void handle_sra(unsigned int cur_inst) {
     unsigned int rd = MASK11_7(cur_inst),
                  rs1 = MASK19_15(cur_inst),
                  rs2 = MASK24_20(cur_inst);
-    NEXT_LATCHES.REGS[rd] = sext(CURRENT_LATCHES.REGS[rs1] >> CURRENT_LATCHES.REGS[rs2], 32);
+    NEXT_LATCHES.REGS[rd] = sext(CURRENT_LATCHES.REGS[rs1] >> CURRENT_LATCHES.REGS[rs2], 5 - CURRENT_LATCHES.REGS[rs2]);
 
     // warn("Lab2-2 assignment: SRA\n");
     // exit(EXIT_FAILURE);
@@ -624,7 +624,7 @@ void handle_sb(unsigned int cur_inst) {
 
     unsigned int rs1 = MASK19_15(cur_inst), rs2 = MASK24_20(cur_inst);
     int imm12 = (MASK11_7(cur_inst));
-    imm12 = (MASK31_25(cur_inst) << 5);
+    imm12 += (MASK31_25(cur_inst) << 5);
     // int pos = rs1 + sext(imm12, 12);
     MEMORY[CURRENT_LATCHES.REGS[rs1] + sext(imm12, 12)] = (MASK7_0(CURRENT_LATCHES.REGS[rs2]));
 
