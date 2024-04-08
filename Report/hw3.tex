@@ -68,7 +68,11 @@ five-stage pipelined datapath.
 \end{enumerate}
 \end{q}
 \begin{ans}
-    
+    \begin{enumerate}
+        \item \text{ }\\\includegraphics[width=1\linewidth]{../figs/q2.1-1.jpg}
+        \item No, NOP will not affect clock cycle time
+        \item Yes, since the program containing this block of code will require more clock cycles to finish. 
+    \end{enumerate}
 \end{ans}
 \pagebreak
 
@@ -87,7 +91,11 @@ instructions are executed on a five-stage pipelined datapath.
 \end{enumerate}
 \end{q}
 \begin{ans}
-    
+    \begin{enumerate}
+        \item Write After Read(WAR)
+        \item 2 NOPs are required \\\includegraphics[width=.6\linewidth]{../figs/q3.2-2.jpg}
+        \item \text{ }\\\includegraphics[width=.6\linewidth]{../figs/q3.3-3.jpg}
+    \end{enumerate}
 \end{ans}
 \pagebreak
 
@@ -99,15 +107,46 @@ instructions are executed on a five-stage pipelined datapath.
     \end{enumerate}
 \end{q}
 \begin{ans}
-    
+    \begin{enumerate}
+        \item 
+        \begin{itemize}
+            \item always-taken: 60\%
+            \item always-not-taken: 40\%
+        \end{itemize}
+        \item 
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+             & Iteration1 & Iteration2 & Iteration3 & ...\\
+            \hline
+            Actual & T NT NT T T & T NT NT T T & T NT NT T T&...\\
+            \hline
+            Predictor State &0,1,0,0,1&2,3,2,1,2&3,3,2,1,2&3,3,2,1,2\\
+            \hline
+            Prediction & N,N,N,N,N & T,T,T,N,T & T,T,T,N,T & T,T,T,N,T \\
+            \hline
+            True or False & F,T,T,F,F & T,F,F,F,T & T,F,F,F,T & T,F,F,F,T\\
+            \hline
+        \end{tabular}
+        \\$\therefore$ Accuracy= $2\div5$ = 40\%
+    \end{enumerate}
 \end{ans}
 \pagebreak
 
 \begin{q}{20}
-    Assume a program requires the execution of 50 × 106 FP instructions, 110 × 106 INT instructions, 80 × 106 L/S instructions, and 16 × 106 branch instructions. The CPI for each type of instruction is 1, 1, 4, and 2, respectively. Assume that the processor has a 2 GHz clock rate. 
+    Assume a program requires the execution of 50 × 10$^6$ FP instructions, 110 × 10$^6$ INT instructions, 80 × 10$^6$ L/S instructions, and 16 × 10$^6$ branch instructions. The CPI for each type of instruction is 1, 1, 4, and 2, respectively. Assume that the processor has a 2 GHz clock rate. 
     \begin{enumerate}
         \item By how much must we reduce the CPI of L/S instructions if we want the program to run two times faster? (10\%)
         \item By how much is the execution time of the program improved if the CPI of INT and FP instructions is reduced by 40\% and the CPI of L/S and Branch is reduced by 30\%? (10\%)
     \end{enumerate}
 \end{q}
+\begin{ans}
+    \begin{enumerate}
+        \item 
+        \text{Let k be the number of CPI to be reduced, t be the execution time}
+        $$\frac{1t}{3t} = \frac{\frac{25}{128} + \frac{55}{128} + (4-k)\frac{5}{16} + 2\frac{1}{16}}{\frac{25}{128} + \frac{55}{128} + 4\frac{5}{16} + 2\frac{1}{16}}$$
+        $$\frac{1t}{3t} = \frac{192+(4-k)80}{512}$$
+        $$k = 2$$
+        \item $$\frac{0.6*110 + 0.7*4*80 + 50 + 16*2}{110 + 4*80 + 50+16*2} = 72.6\%$$
+    \end{enumerate}
+\end{ans}
 \end{document}

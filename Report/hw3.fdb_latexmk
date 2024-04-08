@@ -1,6 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1711643323.22776 "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report/hw3.tex" "hw3.pdf" "hw3" 1711643324.36884 0
-  "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report/hw3.tex" 1711643323.04709 4989 007e742cc705eaf0f30b5f303b9ed240 ""
+["pdflatex"] 1712074072.594 "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report/hw3.tex" "hw3.pdf" "hw3" 1712074073.72318 0
+  "../figs/q2.1-1.jpg" 1711648478.25472 390028 1540db3e2acaebdc7c2a754b5d2cb7c7 ""
+  "../figs/q3.2-2.jpg" 1711659573.39257 389985 ece221b7152f94fe4fb6411bd051455d ""
+  "../figs/q3.3-3.jpg" 1711659851.67682 369350 2207b1cce3776f04ea33e689cf49ba51 ""
+  "/Users/jellyfish/Documents/CUHK/Year_2/Spring/CENG3420_Computer_Organization_And_Design/Report/hw3.tex" 1712074072.39519 6776 98404510fc6221ac6cbe727c1d40db0a ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1710106625 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/map/fontname/texfonts.map" 1710106625 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1710106625 5472554 f7861620179a71a79d4bd86251f559d0 ""
@@ -42,6 +45,7 @@
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1710106625 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1710106625 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1710106625 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
+  "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1710106625 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb" 1710106625 136101 f533469f523533d38317ab5729d00c8a ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1710106625 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1710106625 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -221,9 +225,9 @@
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1710106625 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/web2c/texmf.cnf" 1710106625 41652 e14926ab86fde7902cad99d9eeaa5ca5 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1710106625 8221866 9aed0a1b2ac5e8bec4cefaf91f11118a ""
-  "homework.sty" 1711642531.79029 4778 0a41a079a10e5bb2bd8c846421badb68 ""
-  "hw3.aux" 1711643324.28231 287 20672ec20945852ebe8bd9cfe49b4bd7 "pdflatex"
-  "hw3.tex" 1711643323.04709 4989 007e742cc705eaf0f30b5f303b9ed240 ""
+  "homework.sty" 1711647688.28119 4778 0a41a079a10e5bb2bd8c846421badb68 ""
+  "hw3.aux" 1712074073.63469 287 20672ec20945852ebe8bd9cfe49b4bd7 "pdflatex"
+  "hw3.tex" 1712074072.39519 6776 98404510fc6221ac6cbe727c1d40db0a ""
   (generated)
   "hw3.aux"
   "hw3.log"
