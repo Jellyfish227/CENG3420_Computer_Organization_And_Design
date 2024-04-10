@@ -82,11 +82,15 @@ void eval_bus_drivers() {
     );
 
     /*
-     *  Lab3-3 assignment
+     *  MARK: Lab3-3 assignment
      */
     /* input of GateMAR */
-    // value_of_GateMAR = ?;
-    error("Lab3-3 assignment: value_of_GateMAR = ?;\n");
+    value_of_GateMAR = mar_mux(
+        get_MARMUX(CURRENT_LATCHES.MICROINSTRUCTION), 
+        value_of_MARMUX, 
+        logic_shift_20_function_unit(CURRENT_LATCHES.IR)
+    );
+    // error("Lab3-3 assignment: value_of_GateMAR = ?;\n");
 
     /* output of ALU */
     value_of_alu = alu(
@@ -107,18 +111,36 @@ void eval_bus_drivers() {
     );
 
     /*
-     *  Lab3-3 assignment
+     *  MARK: Lab3-3 assignment
      */
     /* output of the shift function unit */
-    // value_of_shift_function_unit = ?;
-    error("Lab3-3 assignment: value_of_shift_function_unit = ?;\n");
+    value_of_shift_function_unit = shift_function_unit(
+        mask_val(CURRENT_LATCHES.IR, 14, 12),
+        mask_val(CURRENT_LATCHES.IR, 31, 25),
+        rs1_en(
+            get_RS1En(CURRENT_LATCHES.MICROINSTRUCTION),
+            CURRENT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 19, 15)]),
+        rs2_mux(
+            get_RS2MUX(CURRENT_LATCHES.MICROINSTRUCTION),
+            rs2_en(
+                get_RS2En(CURRENT_LATCHES.MICROINSTRUCTION),
+                CURRENT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 24, 20)]
+            ),
+            sext_unit(mask_val(CURRENT_LATCHES.IR, 31, 20), 12)
+        )
+    );
+    // error("Lab3-3 assignment: value_of_shift_function_unit = ?;\n");
 
     /*
-     *  Lab3-3 assignment
+     *  MARK: Lab3-3 assignment
      */
     /* input of GateALUSHF */
-    // value_of_GateALUSHF = ?;
-    error("Lab3-3 assignment: value_of_GateALUSHF = ?;\n");
+    value_of_GateALUSHF = alu_shift_mux(
+        mask_val(CURRENT_LATCHES.IR, 14, 12), 
+        value_of_alu, 
+        value_of_shift_function_unit
+    );
+    // error("Lab3-3 assignment: value_of_GateALUSHF = ?;\n");
 
     /* input of GatePC */
     value_of_GatePC = CURRENT_LATCHES.PC;
@@ -127,7 +149,11 @@ void eval_bus_drivers() {
      *  Lab3-3 assignment
      */
     /* input of GateRS2 */
-    error("Lab3-3 assignment: value_of_GateRS2 = ?;\n");
+    value_of_GateRS2 = rs2_en(
+        get_RS2En(CURRENT_LATCHES.MICROINSTRUCTION), 
+        CURRENT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 24, 20)]
+    );
+    // error("Lab3-3 assignment: value_of_GateRS2 = ?;\n");
 
     /* input of GateMDR */
     value_of_GateMDR = CURRENT_LATCHES.MDR;
@@ -142,22 +168,32 @@ void drive_bus() {
     int _GateMDR = get_GateMDR(CURRENT_LATCHES.MICROINSTRUCTION);
 
     /*
-     *  Lab3-3 assignment
+     *  MARK: Lab3-3 assignment
      */
     switch ((_GateMDR << 4) + (_GateRS2 << 3) + (_GatePC << 2) + (_GateALUSHF << 1) + (_GateMAR)) {
         case 0:
             BUS = 0;
             break;
         case 1:
-            error("Lab3-3 assignment: when value = 1, BUS = ?;\n");
+            BUS = value_of_GateMAR;
+            break;
+            // error("Lab3-3 assignment: when value = 1, BUS = ?;\n");
         case 2:
-            error("Lab3-3 assignment: when value = 2, BUS = ?;\n");
+            BUS = value_of_GateALUSHF;
+            break;
+            // error("Lab3-3 assignment: when value = 2, BUS = ?;\n");
         case 4:
-            error("Lab3-3 assignment: when value = 4, BUS = ?;\n");
+            BUS = value_of_GatePC;
+            break;
+            // error("Lab3-3 assignment: when value = 4, BUS = ?;\n");
         case 8:
-            error("Lab3-3 assignment: when value = 8, BUS = ?;\n");
+            BUS = value_of_GateRS2;
+            break;
+            // error("Lab3-3 assignment: when value = 8, BUS = ?;\n");
         case 16:
-            error("Lab3-3 assignment: when value = 16, BUS = ?;\n");
+            BUS = value_of_GateMDR;
+            break;
+            // error("Lab3-3 assignment: when value = 16, BUS = ?;\n");
         default:
             BUS = 0;
             warn("unknown gate drivers for BUS\n");
