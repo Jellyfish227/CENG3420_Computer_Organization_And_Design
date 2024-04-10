@@ -53,14 +53,48 @@ void cycle_memory() {
             /*
              * Lab3-2 assignment
              */
-            error("Lab3-2 assignment: write to the main memory");
+            int size = datasize_mux(get_DATASIZE(CURRENT_LATCHES.MICROINSTRUCTION), mask_val(CURRENT_LATCHES.IR, 14, 12), 0);
+            switch (size)
+            {
+            case 2:
+                MEMORY[CURRENT_LATCHES.MAR + 3] = MASK31_24(CURRENT_LATCHES.MDR);
+                MEMORY[CURRENT_LATCHES.MAR + 2] = MASK23_16(CURRENT_LATCHES.MDR);
+            case 1:
+                MEMORY[CURRENT_LATCHES.MAR + 1] = MASK15_8(CURRENT_LATCHES.MDR);
+            case 0:
+                MEMORY[CURRENT_LATCHES.MAR] = MASK7_0(CURRENT_LATCHES.MDR);
+                break;
+            default:
+                break;
+            }
+            // error("Lab3-2 assignment: write to the main memory");
         } else {
             /* read */
             /*
              * Lab3-2 assignment
              * Tips: assign the read value to `MEM_VAL`
              */
-            error("Lab3-2 assignment: read from the main memory");
+            int size = datasize_mux(get_DATASIZE(CURRENT_LATCHES.MICROINSTRUCTION), mask_val(CURRENT_LATCHES.IR, 14, 12),0);
+            switch (size)
+            {
+            case 0:
+                MEM_VAL = sext_unit(MEMORY[CURRENT_LATCHES.MAR], 8);
+                break;
+            case 1:
+                MEM_VAL = sext_unit(MEMORY[CURRENT_LATCHES.MAR + 1] << 8
+                                     + MEMORY[CURRENT_LATCHES.MAR], 16);
+                break;
+            case 2:
+                MEM_VAL = sext_unit(MEMORY[CURRENT_LATCHES.MAR + 3] << 24
+                                     + MEMORY[CURRENT_LATCHES.MAR + 2] << 16
+                                     + MEMORY[CURRENT_LATCHES.MAR + 1] << 8 
+                                     + MEMORY[CURRENT_LATCHES.MAR], 32);
+                break;
+            default:
+                break;
+            }
+            NEXT_LATCHES.MDR = MEM_VAL;
+            // error("Lab3-2 assignment: read from the main memory");
         }
         mem_cycle_cnt++;
     } else
@@ -97,6 +131,7 @@ void latch_datapath_values() {
         /*
          *  Lab3-2 assignment
          */
+        regs[mask_val(CURRENT_LATCHES.IR, 11, 7)] = BUS;
         error("Lab3-2 assignment: handle LD_REG");
     }
     /* LD.MAR */
@@ -104,6 +139,7 @@ void latch_datapath_values() {
         /*
          *  Lab3-2 assignment
          */
+        NEXT_LATCHES.MAR = BUS;
         error("Lab3-2 assignment: handle LD_MAR");
     }
     /* LD.IR */
@@ -111,6 +147,7 @@ void latch_datapath_values() {
         /*
          *  Lab3-2 assignment
          */
+        NEXT_LATCHES.IR = BUS;
         error("Lab3-2 assignment: handle LD_IR");
     }
     /* LD.PC */
@@ -118,6 +155,11 @@ void latch_datapath_values() {
         /*
          *  Lab3-2 assignment
          */
+        NEXT_LATCHES.PC = pc_mux(
+            get_PCMUX(CURRENT_LATCHES.MICROINSTRUCTION),
+            CURRENT_LATCHES.PC + 4, 
+            BUS
+        );
         error("Lab3-2 assignment: handle LD_PC");
     }
     /* RESET */
