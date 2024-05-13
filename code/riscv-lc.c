@@ -81,13 +81,13 @@ void cycle_memory() {
                 MEM_VAL = sext_unit(MEMORY[CURRENT_LATCHES.MAR], 8);
                 break;
             case 1:
-                MEM_VAL = sext_unit(MEMORY[CURRENT_LATCHES.MAR + 1] << 8
+                MEM_VAL = sext_unit((MEMORY[CURRENT_LATCHES.MAR + 1] << 8)
                                      + MEMORY[CURRENT_LATCHES.MAR], 16);
                 break;
             case 2:
-                MEM_VAL = sext_unit(MEMORY[CURRENT_LATCHES.MAR + 3] << 24
-                                     + MEMORY[CURRENT_LATCHES.MAR + 2] << 16
-                                     + MEMORY[CURRENT_LATCHES.MAR + 1] << 8 
+                MEM_VAL = sext_unit((MEMORY[CURRENT_LATCHES.MAR + 3] << 24)
+                                     + (MEMORY[CURRENT_LATCHES.MAR + 2] << 16)
+                                     + (MEMORY[CURRENT_LATCHES.MAR + 1] << 8) 
                                      + MEMORY[CURRENT_LATCHES.MAR], 32);
                 break;
             default:
@@ -131,8 +131,8 @@ void latch_datapath_values() {
         /*
          *  Lab3-2 assignment
          */
-        regs[mask_val(CURRENT_LATCHES.IR, 11, 7)] = BUS;
-        error("Lab3-2 assignment: handle LD_REG");
+        NEXT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 11, 7)] = BUS;
+        // error("Lab3-2 assignment: handle LD_REG");
     }
     /* LD.MAR */
     if (get_LD_MAR(CURRENT_LATCHES.MICROINSTRUCTION)) {
@@ -140,7 +140,7 @@ void latch_datapath_values() {
          *  Lab3-2 assignment
          */
         NEXT_LATCHES.MAR = BUS;
-        error("Lab3-2 assignment: handle LD_MAR");
+        // error("Lab3-2 assignment: handle LD_MAR");
     }
     /* LD.IR */
     if (get_LD_IR(CURRENT_LATCHES.MICROINSTRUCTION)) {
@@ -148,7 +148,7 @@ void latch_datapath_values() {
          *  Lab3-2 assignment
          */
         NEXT_LATCHES.IR = BUS;
-        error("Lab3-2 assignment: handle LD_IR");
+        // error("Lab3-2 assignment: handle LD_IR");
     }
     /* LD.PC */
     if (get_LD_PC(CURRENT_LATCHES.MICROINSTRUCTION)) {
@@ -160,7 +160,7 @@ void latch_datapath_values() {
             CURRENT_LATCHES.PC + 4, 
             BUS
         );
-        error("Lab3-2 assignment: handle LD_PC");
+        // error("Lab3-2 assignment: handle LD_PC");
     }
     /* RESET */
     if (get_RESET(CURRENT_LATCHES.MICROINSTRUCTION))
