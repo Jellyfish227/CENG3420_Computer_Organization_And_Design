@@ -48,7 +48,7 @@ void cycle_memory() {
             mem_cycle_cnt = 0;
             NEXT_LATCHES.READY = 1;
         }
-        if (W) {
+        if (W) { //0x0 = 0b0 0x1 = 0b1 0x2=0b10 0x3 = 0b11 || ~(0b0, 0b1, 0b10) => -1, -2, -3
             /* write */
             /*
              * Lab3-2 assignment
@@ -56,18 +56,18 @@ void cycle_memory() {
             int size = datasize_mux(get_DATASIZE(CURRENT_LATCHES.MICROINSTRUCTION), mask_val(CURRENT_LATCHES.IR, 14, 12), 0);
             switch (size)
             {
-            case 2:
+            case -3:
                 MEMORY[CURRENT_LATCHES.MAR + 3] = MASK31_24(CURRENT_LATCHES.MDR);
                 MEMORY[CURRENT_LATCHES.MAR + 2] = MASK23_16(CURRENT_LATCHES.MDR);
-            case 1:
+            case -2:
                 MEMORY[CURRENT_LATCHES.MAR + 1] = MASK15_8(CURRENT_LATCHES.MDR);
-            case 0:
+            case -1:
                 MEMORY[CURRENT_LATCHES.MAR] = MASK7_0(CURRENT_LATCHES.MDR);
                 break;
             default:
                 break;
             }
-            // error("Lab3-2 assignment: write to the main memory");
+            error("Lab3-2 assignment: write to the main memory");
         } else {
             /* read */
             /*
@@ -75,30 +75,29 @@ void cycle_memory() {
              * Tips: assign the read value to `MEM_VAL`
              */
             int size = datasize_mux(get_DATASIZE(CURRENT_LATCHES.MICROINSTRUCTION), mask_val(CURRENT_LATCHES.IR, 14, 12),0);
+            int actualSize = 0;
             switch (size)
             {
-            case 0:
-                MEM_VAL = sext_unit(MEMORY[CURRENT_LATCHES.MAR], 8);
-                break;
-            case 1:
-                MEM_VAL = sext_unit((MEMORY[CURRENT_LATCHES.MAR + 1] << 8)
-                                     + MEMORY[CURRENT_LATCHES.MAR], 16);
-                break;
-            case 2:
-                MEM_VAL = sext_unit((MEMORY[CURRENT_LATCHES.MAR + 3] << 24)
-                                     + (MEMORY[CURRENT_LATCHES.MAR + 2] << 16)
-                                     + (MEMORY[CURRENT_LATCHES.MAR + 1] << 8) 
-                                     + MEMORY[CURRENT_LATCHES.MAR], 32);
+            case -3:
+                MEM_VAL = (MEMORY[CURRENT_LATCHES.MAR + 3] << 24) + (MEMORY[CURRENT_LATCHES.MAR + 2] << 16);
+                actualSize += 16;
+            case -2:
+                MEM_VAL = (MEMORY[CURRENT_LATCHES.MAR + 1] << 8);
+                actualSize += 8;
+            case -1:
+                MEM_VAL = (MEMORY[CURRENT_LATCHES.MAR]);
+                actualSize += 8;
                 break;
             default:
                 break;
             }
-            NEXT_LATCHES.MDR = MEM_VAL;
+            MEM_VAL = sext_unit(MEM_VAL, actualSize);
+
             // error("Lab3-2 assignment: read from the main memory");
         }
         mem_cycle_cnt++;
-    } else
-        mem_cycle_cnt = 0;
+    }
+    else mem_cycle_cnt = 0;
 }
 
 
