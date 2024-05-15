@@ -88,7 +88,7 @@ void eval_bus_drivers() {
     value_of_GateMAR = mar_mux(
         get_MARMUX(CURRENT_LATCHES.MICROINSTRUCTION), 
         value_of_MARMUX, 
-        logic_shift_20_function_unit(CURRENT_LATCHES.IR)
+        logic_shift_20_function_unit(mask_val(CURRENT_LATCHES.IR, 31, 12))
     );
     // error("Lab3-3 assignment: value_of_GateMAR = ?;\n");
 
