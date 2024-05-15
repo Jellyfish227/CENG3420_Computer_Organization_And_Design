@@ -115,18 +115,18 @@ void eval_bus_drivers() {
      */
     /* output of the shift function unit */
     value_of_shift_function_unit = shift_function_unit(
-        mask_val(CURRENT_LATCHES.IR, 14, 12),
-        mask_val(CURRENT_LATCHES.IR, 31, 25),
-        rs1_en(
+        mask_val(CURRENT_LATCHES.IR, 14, 12), // param1: funct3
+        mask_val(CURRENT_LATCHES.IR, 31, 25), // param2: funct7
+        rs1_en( // param3: rs1
             get_RS1En(CURRENT_LATCHES.MICROINSTRUCTION),
             CURRENT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 19, 15)]),
-        rs2_mux(
+        rs2_mux( // param4: operand
             get_RS2MUX(CURRENT_LATCHES.MICROINSTRUCTION),
             rs2_en(
                 get_RS2En(CURRENT_LATCHES.MICROINSTRUCTION),
                 CURRENT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 24, 20)]
             ),
-            sext_unit(mask_val(CURRENT_LATCHES.IR, 31, 20), 12)
+            mask_val(CURRENT_LATCHES.IR, 31, 20)
         )
     );
     // error("Lab3-3 assignment: value_of_shift_function_unit = ?;\n");
