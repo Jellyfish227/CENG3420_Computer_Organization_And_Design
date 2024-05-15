@@ -31,173 +31,37 @@ void cycle() {
 }
 
 
-void eval_bus_drivers() {
-    value_of_GatePC = 0;
-    value_of_GateMAR = 0;
-    value_of_GateMDR = 0;
-    value_of_GateALUSHF = 0;
-    value_of_GateRS2 = 0;
+void eval_micro_sequencer() {
+    /*
+     * Lab3-1 assignment: implement that x0 is hard-wired to zero
+     * i.e., x0 always equal to zero
+     */
+    CURRENT_LATCHES.REGS[0] = NEXT_LATCHES.REGS[0] = 0;
+    // error("Lab3-1 assignment: x0 is hard-wired to zero\n");
 
-    int value_of_MARMUX = 0,
-        value_of_alu,
-        value_of_shift_function_unit = 0;
-
-    value_of_MARMUX = addr2_mux(
-        get_ADDR2MUX(CURRENT_LATCHES.MICROINSTRUCTION),
+    int ird = get_IRD(CURRENT_LATCHES.MICROINSTRUCTION);
+    int j = get_J(CURRENT_LATCHES.MICROINSTRUCTION);
+    int _B = blockBMUX(
+        get_LD_BEN(CURRENT_LATCHES.MICROINSTRUCTION),
         0,
-        sext_unit(mask_val(CURRENT_LATCHES.IR, 31, 20), 12),
-        sext_unit(
-            s_format_imm_gen_unit(
-                mask_val(CURRENT_LATCHES.IR, 11, 7),
-                mask_val(CURRENT_LATCHES.IR, 31, 25)
-            ),
-            12
-        ),
-        sext_unit(
-            j_format_imm_gen_unit(
-                mask_val(CURRENT_LATCHES.IR, 31, 31),
-                mask_val(CURRENT_LATCHES.IR, 30, 21),
-                mask_val(CURRENT_LATCHES.IR, 20, 20),
-                mask_val(CURRENT_LATCHES.IR, 19, 12)
-            ),
-            20
-        )
-    ) + addr1_mux(
-        get_ADDR1MUX(CURRENT_LATCHES.MICROINSTRUCTION),
-        0,
-        CURRENT_LATCHES.PC,
-        rs1_en(
-            get_RS1En(CURRENT_LATCHES.MICROINSTRUCTION),
-            CURRENT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 19, 15)]
-        ),
-        sext_unit(
-            b_format_imm_gen_unit(
-                mask_val(CURRENT_LATCHES.IR, 7, 7),
-                mask_val(CURRENT_LATCHES.IR, 11, 8),
-                mask_val(CURRENT_LATCHES.IR, 30, 25),
-                mask_val(CURRENT_LATCHES.IR, 31, 31)
-            ),
-            12
-        )
+        CURRENT_LATCHES.B
+    );
+
+    if (ird)
+        NEXT_LATCHES.STATE_NUMBER = mask_val(CURRENT_LATCHES.IR, 6, 0);
+    else
+        NEXT_LATCHES.STATE_NUMBER = j | (_B << 3) | (CURRENT_LATCHES.READY << 2);
+
+    memcpy(
+        NEXT_LATCHES.MICROINSTRUCTION,
+        CONTROL_STATE[NEXT_LATCHES.STATE_NUMBER],
+        sizeof(int) * CONTROL_SIGNAL_BITS
     );
 
     /*
-     *  MARK: Lab3-3 assignment
+     * reset
      */
-    /* input of GateMAR */
-    value_of_GateMAR = mar_mux(
-        get_MARMUX(CURRENT_LATCHES.MICROINSTRUCTION), 
-        value_of_MARMUX, 
-        logic_shift_20_function_unit(mask_val(CURRENT_LATCHES.IR, 31, 12))
-    );
-    // error("Lab3-3 assignment: value_of_GateMAR = ?;\n");
-
-    /* output of ALU */
-    value_of_alu = alu(
-        mask_val(CURRENT_LATCHES.IR, 14, 12),
-        mask_val(CURRENT_LATCHES.IR, 31, 25),
-        rs1_en(
-            get_RS1En(CURRENT_LATCHES.MICROINSTRUCTION),
-            CURRENT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 19, 15)]
-        ),
-        rs2_mux(
-            get_RS2MUX(CURRENT_LATCHES.MICROINSTRUCTION),
-            rs2_en(
-                get_RS2En(CURRENT_LATCHES.MICROINSTRUCTION),
-                CURRENT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 24, 20)]
-            ),
-            sext_unit(mask_val(CURRENT_LATCHES.IR, 31, 20), 12)
-        )
-    );
-
-    /*
-     *  MARK: Lab3-3 assignment
-     */
-    /* output of the shift function unit */
-    value_of_shift_function_unit = shift_function_unit(
-        mask_val(CURRENT_LATCHES.IR, 14, 12), // param1: funct3
-        mask_val(CURRENT_LATCHES.IR, 31, 25), // param2: funct7
-        rs1_en( // param3: rs1
-            get_RS1En(CURRENT_LATCHES.MICROINSTRUCTION),
-            CURRENT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 19, 15)]),
-        rs2_mux( // param4: operand
-            get_RS2MUX(CURRENT_LATCHES.MICROINSTRUCTION),
-            rs2_en(
-                get_RS2En(CURRENT_LATCHES.MICROINSTRUCTION),
-                CURRENT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 24, 20)]
-            ),
-            mask_val(CURRENT_LATCHES.IR, 31, 20)
-        )
-    );
-    // error("Lab3-3 assignment: value_of_shift_function_unit = ?;\n");
-
-    /*
-     *  MARK: Lab3-3 assignment
-     */
-    /* input of GateALUSHF */
-    value_of_GateALUSHF = alu_shift_mux(
-        mask_val(CURRENT_LATCHES.IR, 14, 12), 
-        value_of_alu, 
-        value_of_shift_function_unit
-    );
-    // error("Lab3-3 assignment: value_of_GateALUSHF = ?;\n");
-
-    /* input of GatePC */
-    value_of_GatePC = CURRENT_LATCHES.PC;
-
-    /*
-     *  Lab3-3 assignment
-     */
-    /* input of GateRS2 */
-    value_of_GateRS2 = rs2_en(
-        get_RS2En(CURRENT_LATCHES.MICROINSTRUCTION), 
-        CURRENT_LATCHES.REGS[mask_val(CURRENT_LATCHES.IR, 24, 20)]
-    );
-    // error("Lab3-3 assignment: value_of_GateRS2 = ?;\n");
-
-    /* input of GateMDR */
-    value_of_GateMDR = CURRENT_LATCHES.MDR;
-}
-
-
-void drive_bus() {
-    int _GateMAR = get_GateMAR(CURRENT_LATCHES.MICROINSTRUCTION);
-    int _GateALUSHF = get_GateALUSHF(CURRENT_LATCHES.MICROINSTRUCTION);
-    int _GatePC = get_GatePC(CURRENT_LATCHES.MICROINSTRUCTION);
-    int _GateRS2 = get_GateRS2(CURRENT_LATCHES.MICROINSTRUCTION);
-    int _GateMDR = get_GateMDR(CURRENT_LATCHES.MICROINSTRUCTION);
-
-    /*
-     *  MARK: Lab3-3 assignment
-     */
-    switch ((_GateMDR << 4) + (_GateRS2 << 3) + (_GatePC << 2) + (_GateALUSHF << 1) + (_GateMAR)) {
-        case 0:
-            BUS = 0;
-            break;
-        case 1:
-            BUS = value_of_GateMAR;
-            break;
-            // error("Lab3-3 assignment: when value = 1, BUS = ?;\n");
-        case 2:
-            BUS = value_of_GateALUSHF;
-            break;
-            // error("Lab3-3 assignment: when value = 2, BUS = ?;\n");
-        case 4:
-            BUS = value_of_GatePC;
-            break;
-            // error("Lab3-3 assignment: when value = 4, BUS = ?;\n");
-        case 8:
-            BUS = value_of_GateRS2;
-            break;
-            // error("Lab3-3 assignment: when value = 8, BUS = ?;\n");
-        case 16:
-            BUS = value_of_GateMDR;
-            break;
-            // error("Lab3-3 assignment: when value = 16, BUS = ?;\n");
-        default:
-            BUS = 0;
-            warn("unknown gate drivers for BUS\n");
-    }
+    NEXT_LATCHES.B = 0;
 }
 
 
